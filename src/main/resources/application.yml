@@ -1,20 +1,16 @@
-# OracleDB connection settings
 spring:
     datasource:
-        url: jdbc:oracle:thin:@localhost:1521/ORCLPDB1
-        driverClassName: oracle.jdbc.OracleDriver
-        username: localdev
-        password: localdev
-        oracleucp.connection-factory-class-name: oracle.jdbc.pool.OracleDataSource
-        oracleucp.initial-pool-size: 5
-        oracleucp.min-pool-size: 5
-        oracleucp.max-pool-size: 10
-
-# JPA settings
+        url: jdbc:h2:file:~/produtos
+        driverClassName: org.h2.Driver
+        username: sa
+        password: sa
     jpa:
-        database-platform: org.hibernate.dialect.Oracle12cDialect
+        database-platform: org.hibernate.dialect.H2Dialect
         hibernate:
-            use-new-id-generator-mappings: false
-            ddl-auto: create    
-    server:
-        port: 8080
+            ddl-auto: update
+    h2:    
+        console.enabled: true
+
+server: 
+    port: 8080
+   
